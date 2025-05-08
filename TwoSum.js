@@ -12,3 +12,25 @@ var twoSum = function (nums, target) {
     previousNums[num] = i;
   }
 };
+function isAnagram(str1, str2) {
+  let word = {};
+  for (let char of str1) {
+    if (!(char in word)) {
+      word[char] = 0;
+    }
+    word[char] += 1;
+  }
+  for (let char of str2) {
+    if (char in word) {
+      word[char] -= 1;
+    } else {
+      return false;
+    }
+  }
+  for (let char in word) {
+    if (word[char] !== 0) {
+      return false;
+    }
+  }
+  return true;
+}
